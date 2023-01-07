@@ -1,0 +1,53 @@
+
+{%extends "homepage.html"%}
+
+
+{%block content%}
+<center>
+<style>
+.text {
+        color: whitesmoke;
+        font-size: 15px;
+        padding: 8px 12px;
+        position: absolute;
+        bottom: 8px;
+        width: 100%;
+        text-align: center;
+    }
+  
+    body{
+        background-color: cadetblue;
+    }
+
+</style>
+<h1 class="display-4" style="font-weight: bold;margin-top: 30px;margin-bottom: 1em;color:white;">
+  Pizza Details</h1>
+<form method="post" action="/addtocart">
+  {%csrf_token%}
+<table class="table">
+    <tr><td>Pizza Name</td>
+      <td>{{cake.pname}}</td></tr>
+    <tr><td>Price</td>
+      <td>{{cake.price}}</td></tr>
+    <tr><td>Pizza Description</td>
+            <td>{{cake.description}}</td></tr>
+    <tr><td>Size</td>
+    <td>{{cake.size}}</td></tr>
+    <tr><td colspan="2" align="center"><img src="{{cake.image.url}}" height="300px" width="300px"/></td></tr>
+    <tr><td>Quantity</td>
+      <td><select name="qty" class="form-control" style="width: 70px; ">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select></td></tr>
+    <tr><td>
+      <button type="submit" class="btn btn-success">Add To Cart</button>
+    </td><td>
+      <input type="hidden" name="cakeid" value="{{cake.id}}"/>
+    </td></tr>
+</table>
+</form>
+</center>
+{%endblock%}

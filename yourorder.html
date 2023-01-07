@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    body{
+        background-color:black;
+    }
+</style>
+</head>
+<body>
+    
+<center><h1>your order details</h1></center>
+<center><table  border="1" bgcolor="white" >
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Amount</th>
+            <th scope="col">dateOfOrder</th>
+            <th scope="col">Pizza Name</th>
+            <th scope="col">customer</th>
+        </tr>
+    </thead>
+    {%for cat in cats%}
+        <tr > 
+            <td bgcolor="pink">{{cat.id}}</td>
+            <td bgcolor="pink">{{cat.amount}}</td>
+            <td bgcolor="pink">{{cat.dateOfOrder}}</td>
+            <td bgcolor="pink">{{cat.details}}</td>
+            <td bgcolor="pink">{{request.session.uname}}</td>
+            </tr></center>
+        
+    {%endfor%}</table>
+</body>
+</html>

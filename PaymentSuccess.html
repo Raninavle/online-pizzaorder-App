@@ -1,0 +1,82 @@
+{%load static%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" 
+      href='{% static "css/PaymentSuccess.css" %}' type="text/css"/>
+    <link rel="stylesheet" 
+      href='{% static "css/reating.css" %}' type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+<style>
+    body
+    {
+        background-color: cadetblue;
+    }
+
+</style>
+
+    
+    <div class="container">
+        <div class="row">
+        <div class="col-md-6 mx-auto mt-5">
+            <div class="payment">
+                <div class="payment_header">
+                    <div class="check"><i class="fa fa-check" aria-hidden="true"></i></div>
+                </div>
+                <div class="content">
+                    <h1>Payment Success !</h1>
+                    <p>We are delighted to inform you that we received your payments</p> </p>
+                    <a href="/">Go to Home</a>
+                </div>             
+            </div>
+        </div>
+        </div>
+    </div>
+    <h2 style="text-align:center;text-transform:uppercase;font-family:'Josefin Sans',sans-serif;padding:20px;">
+        Please give us your valuable feedback
+    </h2>
+
+    <div class="container">
+        <form action='/reviewsave'  method="post">
+            {% csrf_token %}
+            <div class="mb-3">
+                <center><p class="text-center mt-2">Ratings</p>
+                <div class="rating">
+                    <input type="radio" name="ratings" value="star1" id="star1" />
+                    <label for="star1"></label>
+                    <input type="radio" name="ratings" value="star2" id="star2" />
+                    <label for="star2"></label>
+                    <input type="radio" name="ratings" value="star3" id="star3" />
+                    <label for="star3"></label>
+                    <input type="radio" name="ratings" value="star4" id="star4" />
+                    <label for="star4"></label>
+                    <input type="radio" name="ratings" value="star5" id="star5" />
+                    <label for="star5"></label>
+                </div></center>
+            </div>
+            <div style="margin-top: 2.5em;margin-bottom: 1em;text-align: center;">
+              <label for="feedback" class="form-label">Your Feedback</label>
+              <textarea class="form-control" id="feedback" rows="3" name="feedback" placeholder="How Can We Improve"></textarea>
+            </div>
+            <center><div class="container text-center">
+                <button type="submit"  value="Submit" onclick="getConfirm()">Submit</button>
+            </div></center> 
+        </form>  
+    </div>
+    </div>         
+</body>
+</html>
+<script type="text/javascript">
+    function getConfirm()
+    {
+        result = confirm("Feedback send successfully");
+       
+    }
+</script>

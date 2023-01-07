@@ -1,0 +1,30 @@
+{%extends "homepage.html" %}
+
+{%block content%}
+<style>
+    body{
+        background-color: cadetblue;
+    }
+</style>
+<h1 class="display-4" style="font-weight: bold;margin-top: 30px;margin-bottom: 1em;color:white;">Make Payment!!</h1>
+<form method="post">
+    {%csrf_token%}
+<table class="table">
+    <tr><td><h3>Enter Card No.</h3></td>
+    <td><input type="text" name="cardno" placeholder="Card No" class="form-control" required/></td></tr>
+    <tr><td><h3>Enter CVV</h3></td>
+        <td><input type="text" name="cvv" class="form-control" placeholder="CVV" required/></td></tr>
+
+        <tr><td><h3>Enter Expiry</h3></td>
+            <td><input type="text" name="expiry" class="form-control" required placeholder="Expiry"/></td></tr>
+        
+        <tr><td><h3>Total Amout</h3></td>
+                <td><h3>{{request.session.total}}</h3></td></tr>
+                
+        <tr>
+<td><button type="submit" class="btn btn-success">Make Payment</button></td>
+</tr>
+</table>
+<a align="right" href="/Orderdetails" class="btn btn-success">Add Address</a>
+</form>
+{%endblock%}
